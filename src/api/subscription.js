@@ -130,6 +130,7 @@ export function activateSubscription(subscriptionID : string, { buyerAccessToken
     return callSmartAPI({
         accessToken: buyerAccessToken,
         method:      `post`,
+        eventName:   `billagmt_subscriptions_activate`,
         url:         `${ SMART_API_URI.SUBSCRIPTION }/${ subscriptionID }/activate`
     }).then(({ data }) => {
         return data;
@@ -139,6 +140,7 @@ export function activateSubscription(subscriptionID : string, { buyerAccessToken
 export function getSubscription(subscriptionID : string, { buyerAccessToken } : SubscriptionAPICredentials) : ZalgoPromise<SubscriptionResponse> {
     return callSmartAPI({
         accessToken: buyerAccessToken,
+        eventName:   `billagmt_subscriptions_get`,
         url:         `${ SMART_API_URI.SUBSCRIPTION }/${ subscriptionID }`
     }).then(({ data }) => {
         return data;
