@@ -34,8 +34,8 @@ export function createPayment(payment : PaymentCreateRequest, { facilitatorAcces
 
     return callRestAPI({
         accessToken: facilitatorAccessToken,
-        method:      `post`,
-        eventName:   `v1_payments_payment_create`,
+        method:      'post',
+        eventName:   'v1_payments_payment_create',
         url:         `${ PAYMENTS_API_URL }`,
         data:        payment,
         headers:     {
@@ -86,7 +86,7 @@ export function createPaymentToken(payment : PaymentCreateRequest, { facilitator
 export function getPayment(paymentID : string, { facilitatorAccessToken, partnerAttributionID } : PaymentAPIOptions) : ZalgoPromise<PaymentResponse> {
     return callRestAPI({
         accessToken: facilitatorAccessToken,
-        eventName:   `v1_payments_payment_get`,
+        eventName:   'v1_payments_payment_get',
         url:         `${ PAYMENTS_API_URL }/${ paymentID }`,
         headers:     {
             [HEADERS.PARTNER_ATTRIBUTION_ID]: partnerAttributionID || ''
@@ -97,8 +97,8 @@ export function getPayment(paymentID : string, { facilitatorAccessToken, partner
 export function executePayment(paymentID : string, payerID : string, { facilitatorAccessToken, partnerAttributionID } : PaymentAPIOptions) : ZalgoPromise<PaymentResponse> {
     return callRestAPI({
         accessToken: facilitatorAccessToken,
-        eventName:   `v1_payments_payment_execute`,
-        method:      `post`,
+        method:      'post',
+        eventName:   'v1_payments_payment_execute',
         url:         `${ PAYMENTS_API_URL }/${ paymentID }/execute`,
         headers:     {
             [HEADERS.PARTNER_ATTRIBUTION_ID]: partnerAttributionID || ''
@@ -118,8 +118,8 @@ export function patchPayment(paymentID : string, data : PatchData, { facilitator
 
     return callRestAPI({
         accessToken: facilitatorAccessToken,
-        method:      `patch`,
-        eventName:   `v1_payments_payment_patch`,
+        method:      'patch',
+        eventName:   'v1_payments_payment_patch',
         url:         `${ PAYMENTS_API_URL }/${ paymentID }`,
         data:        patchData,
         headers:     {
