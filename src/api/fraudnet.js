@@ -69,3 +69,9 @@ export const loadFraudnet : Memoized<LoadFraudnet> = memoize(({ env, clientMetad
         body.appendChild(fraudnetScript);
     });
 });
+
+export const retriggerFraudnet: void = () => {
+    if (PAYPAL.asyncData && typeof PAYPAL.asyncData.initAndCollect === 'function') {
+        PAYPAL.asyncData.initAndCollect()
+    }
+}
