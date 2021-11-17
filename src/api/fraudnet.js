@@ -70,8 +70,10 @@ export const loadFraudnet : Memoized<LoadFraudnet> = memoize(({ env, clientMetad
     });
 });
 
-export const retriggerFraudnet: void = () => {
+export const retriggerFraudnet : void = () => {
+    /* eslint-disable no-undef */
     if (PAYPAL.asyncData && typeof PAYPAL.asyncData.initAndCollect === 'function') {
-        PAYPAL.asyncData.initAndCollect()
+        PAYPAL.asyncData.initAndCollect();
     }
-}
+    /* eslint-enable no-undef */
+};
